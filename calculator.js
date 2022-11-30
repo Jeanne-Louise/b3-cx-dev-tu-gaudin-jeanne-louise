@@ -8,6 +8,19 @@ module.exports = {
   subtract,
   multiply,
   divide,
+  calcHypotenuse,
+  pow
 }
+
+
+function calcHypotenuse(x) {
+  return result = Math.sqrt(x);
+}
+
+function pow(x, y) {
+ return result = Math.pow(x, y);
+}
+
+
 
 
