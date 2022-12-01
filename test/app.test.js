@@ -1,48 +1,68 @@
-const assert = require('assert')
-const operations = require('../calculator')
+const Calculator = require('../calculator').Calculator;
+const expect = require('chai').expect;
 
 
-describe('Calculator', () => {
-    
-    describe('Addition', () => {
-        it('correctly calculates the sum of 1 and 3', () => {
-            assert.equal(operations.add(1, 3), 4)
+
+
+describe('Calculator', function() {
+
+    describe('Addition', function() {
+        it('correctly calculates the sum of 1 and 1', function(done) {
+            let operations = new Calculator(1,1);
+            expect(operations.getAddition()).to.equal(2);
+            done();
         })
-    })
-    
-    describe('Subtraction', () => {
-        it('correctly calculates the difference of 33 and 3', () => {
-            assert.equal(operations.subtract(33, 3), 30)
-        })
-     })
-    describe('Multiplication', () => {
-        it('correctly calculates the product of 12 and 12', () => {
-            assert.equal(operations.multiply(12, 12), 144)
-          })
-     })
-  
-    describe('Division', () => {
-      it('correctly calculates the quotient of 10 and 2', () => {
-        assert.equal(operations.divide(10, 2), 5)
-      })
-    })
+    });
 
-    describe ('square of a number', () => {
-        it('correctly calculates square of the number 5', () => {
-            assert.equal(operations.pow(5,2), 25)
-           })
-    })
-    
-    describe('Square root', () => {
-        it('correctly calculates square  root of 9', () => {
-              assert.equal(operations.calcHypotenuse(9), 3)
+    describe('Substraction', function() {
+        it('correctly substracts 33 and 3', function(done) {
+            let operations = new Calculator(33,3);
+            expect(operations.getSubstraction()).to.equal(30);
+            done();
         })
-    })
-        
-    describe('power of a number', () => {
-        it('correctly calculates power of the number 5', () => {
-             assert.equal(operations.pow(7,3), 343)
-            })
-    })
+    });
 
+    describe('Multiplication', function() {
+        it('correctly multiplies 7 and 5', function(done) {
+            let operations = new Calculator(7,5);
+            expect(operations.getMultiplication()).to.equal(35);
+            done();
+        })
+    });
+
+    describe('Division', function() {
+        it('correctly divides 10 and 5', function(done) {
+            let operations = new Calculator(10,5);
+            expect(operations.getDivision()).to.equal(2);
+            done();
+        })
+    });
+
+    
+    describe('Square of a number', function() {
+        it('correctly calculates square of the number 5', function(done) {
+            let operations = new Calculator(5,2);
+            expect(operations.getPow()).to.equal(25);
+            done();
+        })
+    });
+
+    describe('Square root', function() {
+        it('correctly calculates square  root of 9', function(done) {
+            let operations = new Calculator(9);
+            expect(operations.getCalcHypotenuse()).to.equal(3);
+            done();
+        })
+    });
+
+    describe('power of a number', function() {
+        it('correctly calculates power of the number 5', function(done) {
+            let operations = new Calculator(7,3);
+            expect(operations.getPow()).to.equal(343);
+            done();
+        })
+    });
+
+
+    
 })
